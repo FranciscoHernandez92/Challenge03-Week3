@@ -1,16 +1,31 @@
 import { Component } from './component';
 
 export class Card extends Component {
-  listpets: listPets;
-  constructor(selector: string, listPets: object) {
+  pet: object;
+  constructor(selector: string, pet: object) {
     super(selector);
-    this.template = this.createTemplate();
+    this.pet = pet;
     this.render();
-    this.listpets = listPets;
   }
-  createTemplate() {
-    return `
 
+  render(): void {
+    this.template = this.createTemplate();
+    super.render();
+  }
+
+  dataPet = (pet: any) => `
+    <li>Id: ${pet.id}</li>
+    <li>Name: ${pet.name}</li>
+    <li>Breed: ${pet.breed}</li>
+    <li>Adopted: ${pet.isAdopted}</li>
+    `;
+
+  createTemplate() {
+    const item = this.pet;
+    return `
+    <ul>
+    <li>${this.dataPet(item)}</li>
+    </ul>
     `;
   }
 }

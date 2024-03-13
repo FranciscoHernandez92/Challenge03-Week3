@@ -12,11 +12,12 @@ export class Header extends Component {
   createTemplate() {
     return `
     <header class="header">
-      <h1 class="header__title">Pet Web</h1>
+      <h1 class="header__title">${this.title}</h1>
         <nav>
           <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Pets</a></li>
+            <li><a href="#">About us</a></li>
           </ul>
         </nav>
     </header>
